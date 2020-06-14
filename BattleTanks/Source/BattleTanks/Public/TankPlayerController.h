@@ -26,12 +26,16 @@ private:
     UPROPERTY(EditAnywhere)
     float CrossHairYLocation = 0.33333;
     
-    ATank* GetControlledTank() const;
+    UPROPERTY(EditAnywhere)
+    float LineTraceRange = 1000000.0; // 10 Kilometers.
     
     /* Start the tank movinf the barrel so that a shot would hit where
     the crosshair intersects the world */
     void AimTowardsCrosshair();
+    
+    ATank* GetControlledTank() const;
     bool GetSightRayHitLocation(FVector &OutHitLocation) const;
-    bool GetLookDirection(FVector2D ScreenLocation, FVector &LookDirection) const;
-	
+    bool GetLookDirection(FVector &LookDirection) const;
+    bool GetLookVectorHitLocation(FVector LookDirection, FVector &HitLocation) const;
+    
 };
