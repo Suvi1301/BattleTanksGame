@@ -35,6 +35,6 @@ public:
     void SetBarrelReference(UTankBarrel* BarrelToSet);
     
     UPROPERTY(EditAnywhere, Category = Firing)
-    float LaunchSpeed = 100000; // TODO: Find sensible default initial speed.
+    float LaunchSpeed = 4000;
 
 };
