@@ -30,7 +30,8 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
     
-    void AimAt(FVector HitLocation);
+    UPROPERTY(EditAnywhere, Category = Firing)
+    float LaunchSpeed = 4000;
     
     UFUNCTION(BlueprintCallable, Category = Setup)
     void SetBarrelReference(UTankBarrel* BarrelToSet);
@@ -38,7 +39,9 @@ public:
     UFUNCTION(BlueprintCallable, Category = Setup)
     void SetTurretReference(UTankTurret* TurretToSet);
     
-    UPROPERTY(EditAnywhere, Category = Firing)
-    float LaunchSpeed = 4000;
+    void AimAt(FVector HitLocation);
+    
+    UFUNCTION(BlueprintCallable, Category = Firing)
+    void Fire();
 
 };
